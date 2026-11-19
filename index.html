@@ -21,7 +21,7 @@
 html{scroll-padding-top:70px}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif;overflow-x:clip}
 a{color:var(--blue2)}
-img{max-width:100%;display:block}
+img{max-width:100%;height:auto;display:block}
 h1,h2,h3{font-family:"Space Grotesk",system-ui,sans-serif;letter-spacing:-.02em;line-height:1.08;margin:0;text-wrap:balance}
 h2{font-size:clamp(30px,4vw,46px)}
 h3{font-size:20px}
@@ -58,7 +58,13 @@ p{margin:0}
 .ph{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:12px 24px}
 .ty{color:var(--blue2);font-weight:600;font-size:15px;margin-bottom:8px}
 .kick{color:var(--mute);font-size:17px;margin-top:12px;max-width:70ch}
-.pg{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:32px;margin-top:28px;align-items:start}
+.pg{display:grid;grid-template-columns:minmax(0,1fr);gap:28px;margin-top:28px}
+.pg>div:last-child{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:16px 40px;align-items:start}
+.pg>div:last-child .tags{margin-top:0}
+.main img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top}
+.ths{grid-template-columns:repeat(auto-fill,minmax(140px,180px))}
+.code{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:10px;border:1px solid var(--line);color:var(--ink);text-decoration:none;font-weight:600;font-size:15px;margin-top:16px}
+.code:hover{border-color:var(--blue)}
 .gal figure{margin:0}
 .main{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--navy)}
 .gal figcaption{color:var(--mute);font-size:14px;margin-top:10px}
@@ -96,7 +102,7 @@ ul.ck li::before{content:"";position:absolute;left:0;top:.55em;width:10px;height
 .contact .btn.p{background:#fff;color:var(--navy)}
 .contact .btn.g{border-color:#9DB8F5}
 .foot{background:var(--navy);color:#8E9BB5;font-size:14px;padding:20px max(5vw,16px)}
-@media(max-width:960px){.pg{grid-template-columns:minmax(0,1fr)}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.skills{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:960px){.pg>div:last-child{grid-template-columns:minmax(0,1fr)}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.skills{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:720px){.top,.contact .wrap{grid-template-columns:minmax(0,1fr)}.how{grid-template-columns:minmax(0,1fr)}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.grid{grid-template-columns:minmax(0,1fr)}.tl div{grid-template-columns:minmax(0,1fr);gap:4px}.frame .bar span{display:none}}
 @media(max-width:420px){.skills{grid-template-columns:minmax(0,1fr)}}
@@ -123,6 +129,7 @@ ul.ck li::before{content:"";position:absolute;left:0;top:.55em;width:10px;height
         <div class="cta">
           <a class="btn p" href="#pakivox">Ver proyectos</a>
           <a class="btn g" href="https://www.linkedin.com/in/manuel-santiago-a555513b4">LinkedIn</a>
+          <a class="btn g" href="https://github.com/manuelsantiagorm-ctrl">GitHub</a>
         </div>
       </div>
     </div>
@@ -146,6 +153,7 @@ ul.ck li::before{content:"";position:absolute;left:0;top:.55em;width:10px;height
         <div class="ty">SaaS para mayoristas · en producción</div>
         <h2>PAKIVOX</h2>
         <p class="kick">Sistema de operación para mayoristas que venden por WhatsApp e internet. Lleva cada pedido desde el cobro hasta la entrega, con varias bodegas por empresa. Lo hice solo y está en línea en <a href="https://www.pakivox.com">pakivox.com</a>.</p>
+        <a class="code" href="https://github.com/manuelsantiagorm-ctrl/pakivox">Ver código en GitHub</a>
       </div>
       <div class="facts">
         <div><strong>+2,000</strong><span>pruebas</span></div>
@@ -185,6 +193,7 @@ ul.ck li::before{content:"";position:absolute;left:0;top:.55em;width:10px;height
         <div class="ty">SaaS para restaurantes · con IA</div>
         <h2>Mesaya</h2>
         <p class="kick">Reservaciones en línea para varios restaurantes y cadenas, cada uno con su marca, sucursales y datos aislados. Incluye recepción, lista de espera, punto de venta por mesa, pantalla de cocina y un asistente de IA.</p>
+        <a class="code" href="https://github.com/manuelsantiagorm-ctrl/mesaya">Ver código en GitHub</a>
       </div>
       <div class="facts">
         <div><strong>89</strong><span>pruebas</span></div>
@@ -221,6 +230,7 @@ ul.ck li::before{content:"";position:absolute;left:0;top:.55em;width:10px;height
         <div class="ty">SaaS para barberías · citas en línea</div>
         <h2>Sistema para barberías</h2>
         <p class="kick">Una sola instalación atiende a muchas barberías, cada una con sus sucursales, barberos, servicios y clientes. Cada barbería tiene su propia página con reserva en línea y un panel para el día a día.</p>
+        <a class="code" href="https://github.com/manuelsantiagorm-ctrl/sistema-barberias">Ver código en GitHub</a>
       </div>
       <div class="facts">
         <div><strong>229</strong><span>pruebas</span></div>
@@ -256,6 +266,7 @@ ul.ck li::before{content:"";position:absolute;left:0;top:.55em;width:10px;height
         <div class="ty">Sistema para gimnasios</div>
         <h2>Gym Control</h2>
         <p class="kick">Control de socios, membresías y acceso para un gimnasio. Cada cliente recibe una credencial con QR que se escanea en la entrada para validar si su membresía sigue vigente.</p>
+        <a class="code" href="https://github.com/manuelsantiagorm-ctrl/gym-control">Ver código en GitHub</a>
       </div>
     </div>
     <div class="pg">
@@ -284,13 +295,13 @@ ul.ck li::before{content:"";position:absolute;left:0;top:.55em;width:10px;height
     <div class="grid">
       <article class="pj">
         <div class="ty">En desarrollo · punto de venta</div>
-        <h3>PAKIVOX Verdulería</h3>
+        <h3><a href="https://github.com/manuelsantiagorm-ctrl/pakivox-verduleria" style="color:inherit">PAKIVOX Verdulería</a></h3>
         <p>Punto de venta para Windows que funciona sin internet. Catálogo con unidades exactas por kilo, recepción y merma, movimientos de inventario que no se pueden alterar y caja.</p>
         <div class="tags"><span>Django</span><span>SQLite</span><span>553 pruebas</span></div>
       </article>
       <article class="pj">
         <div class="ty">Proyecto en equipo · AquaTech Dev</div>
-        <h3>ODAPAS Report</h3>
+        <h3><a href="https://github.com/manuelsantiagorm-ctrl/odapas-report" style="color:inherit">ODAPAS Report</a></h3>
         <p>Los ciudadanos reportan fugas, falta de agua o baja presión sobre un mapa, y el administrador asigna cada reporte a un trabajador de su zona.</p>
         <div class="tags"><span>Angular</span><span>Spring Boot</span><span>PostgreSQL</span><span>Leaflet</span></div>
       </article>
@@ -302,13 +313,13 @@ ul.ck li::before{content:"";position:absolute;left:0;top:.55em;width:10px;height
       </article>
       <article class="pj">
         <div class="ty">Bases de datos</div>
-        <h3>Consola de administración PostgreSQL</h3>
+        <h3><a href="https://github.com/manuelsantiagorm-ctrl/consola-admin-postgresql" style="color:inherit">Consola de administración PostgreSQL</a></h3>
         <p>Herramienta de terminal para respaldar y restaurar bases, monitorear y cerrar sesiones, y administrar usuarios y permisos en Debian.</p>
         <div class="tags"><span>Bash</span><span>PostgreSQL</span><span>Linux</span></div>
       </article>
       <article class="pj">
         <div class="ty">CRUD con acceso protegido</div>
-        <h3>Junior Baseball League</h3>
+        <h3><a href="https://github.com/manuelsantiagorm-ctrl/junior-baseball-league" style="color:inherit">Junior Baseball League</a></h3>
         <p>Equipos y jugadores con altas, consultas, edición y bajas, ficha de plantilla por equipo y acceso solo para administradores.</p>
         <div class="tags"><span>Django</span><span>PostgreSQL</span></div>
       </article>
