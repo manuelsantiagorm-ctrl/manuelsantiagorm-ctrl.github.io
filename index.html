@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manuel Santiago</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* VOICE work: portafolio de desarrollador, sobrio y denso, que deja hablar a los sistemas
+   IDEA una vitrina de software real: cada proyecto se muestra con sus pantallas, como una demo
+   PICTURE el Dashboard CEO de PAKIVOX enmarcado en un navegador, grande, en la banda navy
+   COLOUR marca visual_studioweb: navy #0B1220, azul #2563EB, fondo #F4F5F7, blanco
+   TYPE Space Grotesk 700 + Inter
+   LAYOUT laptop: texto arriba, captura a todo lo ancho; proyectos con galería y ficha lado a lado; teléfono apilado */
+:root{color-scheme:light dark;--bg:light-dark(#F4F5F7,#0B1220);--card:light-dark(#fff,#121B2E);--ink:light-dark(#0B1220,#E8ECF3);--mute:light-dark(#4A5568,#A3AEC2);--line:light-dark(#DDE1E8,#24304A);--blue:#2563EB;--blue2:light-dark(#1D4ED8,#6EA0FF);--navy:#0B1220;--tint:light-dark(#E6EEFD,#16244A)}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif;overflow-x:clip}
+a{color:var(--blue2)}
+img{max-width:100%;display:block}
+h1,h2,h3{font-family:"Space Grotesk",system-ui,sans-serif;letter-spacing:-.02em;line-height:1.08;margin:0;text-wrap:balance}
+h2{font-size:clamp(30px,4vw,46px)}
+h3{font-size:20px}
+p{margin:0}
+.band{padding-block:clamp(40px,5vw,80px);padding-inline:max(5vw,16px)}
+.wrap{max-width:1240px;margin:0 auto}
+.nav{position:sticky;top:0;z-index:5;background:var(--navy);color:#fff;border-bottom:1px solid #1E2A44}
+.nav .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:4px 20px;padding:12px max(5vw,16px)}
+.nav b{font-family:"Space Grotesk";font-size:18px;margin-right:auto}
+.nav a{color:#C9D3E6;text-decoration:none;font-size:15px;padding:8px 0}
+.nav a:hover{color:#fff}
+.hero{background:var(--navy);color:#fff;padding-bottom:0}
+.top{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:20px 48px;align-items:end}
+.hero h1{font-size:clamp(40px,5.6vw,68px)}
+.hero h1 span{display:block;font-size:.42em;color:#9DB8F5;font-weight:500;margin-top:12px;letter-spacing:-.01em}
+.lead{color:#C9D3E6;font-size:17px}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.btn{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:10px;font-weight:600;text-decoration:none;border:1px solid transparent}
+.btn.p{background:var(--blue);color:#fff}
+.btn.p:hover{background:#1D4ED8}
+.btn.g{border-color:#33415E;color:#fff}
+.btn.g:hover{border-color:#9DB8F5}
+.btn:focus-visible,.nav a:focus-visible,.th:focus-visible{outline:3px solid #9DB8F5;outline-offset:2px}
+.frame{border-radius:12px 12px 0 0;overflow:hidden;background:#1A2540;border:1px solid #2B3A5C;border-bottom:0;box-shadow:0 -10px 60px #2563EB33}
+.frame .bar{display:flex;align-items:center;gap:7px;padding:10px 14px;background:#121B2E;color:#8E9BB5;font-size:13px}
+.frame .bar i{width:10px;height:10px;border-radius:50%;background:#33415E}
+.frame .bar span{margin-left:10px;background:#0B1220;border-radius:6px;padding:2px 12px}
+.shot{margin-top:36px}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin-top:6px}
+.stats strong{display:block;font-family:"Space Grotesk";font-size:clamp(28px,3vw,40px)}
+.stats span{color:#A3AEC2;font-size:14px}
+.proj{border-bottom:1px solid var(--line)}
+.proj.alt{background:var(--card)}
+.ph{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:12px 24px}
+.ty{color:var(--blue2);font-weight:600;font-size:15px;margin-bottom:8px}
+.kick{color:var(--mute);font-size:17px;margin-top:12px;max-width:70ch}
+.pg{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:32px;margin-top:28px;align-items:start}
+.gal figure{margin:0}
+.main{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--navy)}
+.gal figcaption{color:var(--mute);font-size:14px;margin-top:10px}
+.ths{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:10px;margin-top:12px}
+.th{padding:0;border:2px solid var(--line);border-radius:8px;overflow:hidden;background:none;cursor:pointer;min-height:44px}
+.th[aria-pressed=true]{border-color:var(--blue)}
+.th img{aspect-ratio:16/10;object-fit:cover;width:100%}
+ul.ck{list-style:none;padding:0;margin:0;display:grid;gap:11px}
+ul.ck li{padding-left:22px;position:relative;color:var(--mute)}
+ul.ck li b{color:var(--ink);font-weight:600}
+ul.ck li::before{content:"";position:absolute;left:0;top:.55em;width:10px;height:10px;border-radius:3px;background:var(--blue)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px}
+.tags span{background:var(--tint);border-radius:8px;padding:4px 10px;font-size:13px}
+.facts{display:flex;flex-wrap:wrap;gap:18px 32px}
+.facts div strong{display:block;font-family:"Space Grotesk";font-size:30px;line-height:1.1}
+.facts div span{color:var(--mute);font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:28px}
+.pj{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:10px}
+.pj .ty{margin:0;font-size:14px}
+.pj p{color:var(--mute)}
+.pj .tags{margin-top:auto;padding-top:6px}
+.skills{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:28px}
+.skills h3{font-size:17px;margin-bottom:8px}
+.skills ul{margin:0;padding-left:18px;color:var(--mute)}
+.how{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin-top:28px}
+.how h3{font-size:18px;margin-bottom:8px}
+.how p{color:var(--mute)}
+.tl{margin-top:24px}
+.tl div{display:grid;grid-template-columns:10em minmax(0,1fr);gap:20px;padding:16px 0;border-top:1px solid var(--line)}
+.tl time{color:var(--mute);font-size:15px;white-space:nowrap}
+.tl p{color:var(--mute)}
+.contact{background:var(--blue);color:#fff}
+.contact .wrap{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:28px;align-items:center}
+.contact p{color:#DCE6FF;margin-top:12px;font-size:17px}
+.contact .btn.p{background:#fff;color:var(--navy)}
+.contact .btn.g{border-color:#9DB8F5}
+.foot{background:var(--navy);color:#8E9BB5;font-size:14px;padding:20px max(5vw,16px)}
+@media(max-width:960px){.pg{grid-template-columns:minmax(0,1fr)}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.skills{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:720px){.top,.contact .wrap{grid-template-columns:minmax(0,1fr)}.how{grid-template-columns:minmax(0,1fr)}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.grid{grid-template-columns:minmax(0,1fr)}.tl div{grid-template-columns:minmax(0,1fr);gap:4px}.frame .bar span{display:none}}
+@media(max-width:420px){.skills{grid-template-columns:minmax(0,1fr)}}
+</style>
+</head>
+<body>
+
+<nav class="nav"><div class="wrap">
+  <b>Manuel Santiago</b>
+  <a href="#pakivox">PAKIVOX</a>
+  <a href="#mesaya">Mesaya</a>
+  <a href="#barberia">Barberías</a>
+  <a href="#gym">Gimnasio</a>
+  <a href="#mas">Más</a>
+  <a href="#contacto">Contacto</a>
+</div></nav>
+
+<header class="hero band">
+  <div class="wrap">
+    <div class="top">
+      <h1>Manuel Santiago<span>Desarrollador de software. Hago sistemas de almacén, reservaciones y operación para negocios reales.</span></h1>
+      <div>
+        <p class="lead">Construyo con Python y Django de punta a punta: modelo de datos, pantallas, pruebas automatizadas y servidor en producción. Estos son los sistemas que he hecho, con sus pantallas reales.</p>
+        <div class="cta">
+          <a class="btn p" href="#pakivox">Ver proyectos</a>
+          <a class="btn g" href="https://www.linkedin.com/in/manuel-santiago-a555513b4">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+    <div class="stats" style="margin-top:36px">
+      <div><strong>4</strong><span>sistemas completos para negocios</span></div>
+      <div><strong>3</strong><span>SaaS multiempresa</span></div>
+      <div><strong>+2,900</strong><span>pruebas automatizadas</span></div>
+      <div><strong>19</strong><span>apps de Django en PAKIVOX</span></div>
+    </div>
+    <div class="frame shot">
+      <div class="bar"><i></i><i></i><i></i><span>pakivox.com · Dashboard CEO</span></div>
+      <img src="img/pk_ceo.jpg" alt="Dashboard CEO de PAKIVOX con salud del negocio, utilidad del mes, ventas y saldo por cobrar" width="1200" height="750">
+    </div>
+  </div>
+</header>
+
+<section class="band proj" id="pakivox">
+  <div class="wrap">
+    <div class="ph">
+      <div>
+        <div class="ty">SaaS para mayoristas · en producción</div>
+        <h2>PAKIVOX</h2>
+        <p class="kick">Sistema de operación para mayoristas que venden por WhatsApp e internet. Lleva cada pedido desde el cobro hasta la entrega, con varias bodegas por empresa. Lo hice solo y está en línea en <a href="https://www.pakivox.com">pakivox.com</a>.</p>
+      </div>
+      <div class="facts">
+        <div><strong>+2,000</strong><span>pruebas</span></div>
+        <div><strong>19</strong><span>apps de Django</span></div>
+        <div><strong>10</strong><span>bodegas por empresa</span></div>
+      </div>
+    </div>
+    <div class="pg">
+      <div class="gal" data-gal>
+        <figure><div class="main"><img data-main src="img/pk_orders.jpg" alt="" width="1200" height="750"></div><figcaption data-cap>Pedidos con costo, utilidad, margen y saldo por cobrar.</figcaption></figure>
+        <div class="ths">
+          <button class="th" aria-pressed="true" data-src="img/pk_orders.jpg" data-cap="Pedidos con costo, utilidad, margen y saldo por cobrar."><img src="img/pk_orders.jpg" alt="Pedidos"></button>
+          <button class="th" data-src="img/pk_picking.jpg" data-cap="Rutas de picking por bodega, con asignación y estado."><img src="img/pk_picking.jpg" alt="Picking"></button>
+          <button class="th" data-src="img/pk_layout.jpg" data-cap="Diseñador visual de la bodega: racks, andenes y zonas de empaque."><img src="img/pk_layout.jpg" alt="Mapa de bodega"></button>
+          <button class="th" data-src="img/pk_inv.jpg" data-cap="Catálogo con SKUs, variantes, precios por mayoreo y stock por bodega."><img src="img/pk_inv.jpg" alt="Inventario"></button>
+          <button class="th" data-src="img/pk_landing.jpg" data-cap="Página pública de venta con prueba de 14 días."><img src="img/pk_landing.jpg" alt="Página pública"></button>
+        </div>
+      </div>
+      <div>
+        <ul class="ck">
+          <li><b>Operación completa.</b> Inventario con lotes y caducidades, compras, recepciones, traspasos, pedidos, cobros, picking, packing, guías con Envia.com y Skydropx, rastreo y CRM.</li>
+          <li><b>Aislamiento por empresa.</b> Ninguna consulta ni ID recibido puede tocar datos de otra empresa; cada acción valida permiso, nivel y bodega.</li>
+          <li><b>Libro financiero inmutable.</b> Corregí un error que contaba completo un pedido surtido desde dos bodegas. Hoy cada venta se reparte por lo que surtió cada bodega y nada se sobrescribe.</li>
+          <li><b>Pagos sin carreras.</b> Audité cada flujo que toca pedidos y pagos para que bloquee en el mismo orden y no acepte pagos que superen el saldo.</li>
+          <li><b>Producción real.</b> AWS Lightsail, Nginx, Gunicorn, Celery y Redis, despliegue por releases, HTTPS y monitoreo con Sentry.</li>
+        </ul>
+        <div class="tags"><span>Django 5.2</span><span>PostgreSQL</span><span>HTMX</span><span>Celery</span><span>Redis</span><span>Stripe</span><span>AWS</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band proj alt" id="mesaya">
+  <div class="wrap">
+    <div class="ph">
+      <div>
+        <div class="ty">SaaS para restaurantes · con IA</div>
+        <h2>Mesaya</h2>
+        <p class="kick">Reservaciones en línea para varios restaurantes y cadenas, cada uno con su marca, sucursales y datos aislados. Incluye recepción, lista de espera, punto de venta por mesa, pantalla de cocina y un asistente de IA.</p>
+      </div>
+      <div class="facts">
+        <div><strong>89</strong><span>pruebas</span></div>
+        <div><strong>4</strong><span>niveles de rol</span></div>
+      </div>
+    </div>
+    <div class="pg">
+      <div class="gal" data-gal>
+        <figure><div class="main"><img data-main src="img/mes_hoy.jpg" alt="" width="1200" height="750"></div><figcaption data-cap>Recepción del día: mesas ocupadas, hora estimada de salida y lista de espera.</figcaption></figure>
+        <div class="ths">
+          <button class="th" aria-pressed="true" data-src="img/mes_hoy.jpg" data-cap="Recepción del día: mesas ocupadas, hora estimada de salida y lista de espera."><img src="img/mes_hoy.jpg" alt="Panel de hoy"></button>
+          <button class="th" data-src="img/mes_home.jpg" data-cap="Página de venta de la plataforma."><img src="img/mes_home.jpg" alt="Página de Mesaya"></button>
+          <button class="th" data-src="img/mes_reservar.jpg" data-cap="El comensal reserva sin crear cuenta, solo con horarios realmente libres."><img src="img/mes_reservar.jpg" alt="Reservar"></button>
+          <button class="th" data-src="img/mes_ia.jpg" data-cap="La IA aprende cuánto tarda de verdad cada mesa en cada sucursal y sugiere ajustes."><img src="img/mes_ia.jpg" alt="Lo que aprendió la IA"></button>
+        </div>
+      </div>
+      <div>
+        <ul class="ck">
+          <li><b>Asistente de IA con Claude.</b> Atiende por chat web y WhatsApp: entiende "mesa para 4 mañana a las 2 en terraza" y reserva o propone. La IA conversa, pero el sistema decide, con las mismas reglas y bloqueo contra doble reserva.</li>
+          <li><b>Mejor mesa automática.</b> Mapa del salón por zonas, bloqueos y asignación según el tamaño del grupo.</li>
+          <li><b>Operación en sala.</b> Llegadas sin reserva, check-in por QR, POS por mesa y pantalla de cocina.</li>
+          <li><b>Plataforma.</b> Marca blanca y dominio propio por restaurante, verificación en dos pasos para el personal y aviso de privacidad conforme a la LFPDPPP.</li>
+        </ul>
+        <div class="tags"><span>Django</span><span>PostgreSQL</span><span>API de Claude</span><span>WhatsApp Cloud API</span><span>Bootstrap</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band proj" id="barberia">
+  <div class="wrap">
+    <div class="ph">
+      <div>
+        <div class="ty">SaaS para barberías · citas en línea</div>
+        <h2>Sistema para barberías</h2>
+        <p class="kick">Una sola instalación atiende a muchas barberías, cada una con sus sucursales, barberos, servicios y clientes. Cada barbería tiene su propia página con reserva en línea y un panel para el día a día.</p>
+      </div>
+      <div class="facts">
+        <div><strong>229</strong><span>pruebas</span></div>
+        <div><strong>6</strong><span>pasos para reservar</span></div>
+      </div>
+    </div>
+    <div class="pg">
+      <div class="gal" data-gal>
+        <figure><div class="main"><img data-main src="img/barb_panel.jpg" alt="" width="1200" height="750"></div><figcaption data-cap>Agenda en vivo por barbero: llegadas por QR, cobros y comisiones por validar.</figcaption></figure>
+        <div class="ths">
+          <button class="th" aria-pressed="true" data-src="img/barb_panel.jpg" data-cap="Agenda en vivo por barbero: llegadas por QR, cobros y comisiones por validar."><img src="img/barb_panel.jpg" alt="Agenda"></button>
+          <button class="th" data-src="img/barb_home.jpg" data-cap="Página propia de cada barbería, editable por el dueño."><img src="img/barb_home.jpg" alt="Página de la barbería"></button>
+          <button class="th" data-src="img/barb_reservar.jpg" data-cap="Reserva en 6 pasos: sucursal, servicio, barbero, día, hora y confirmación."><img src="img/barb_reservar.jpg" alt="Reservar"></button>
+        </div>
+      </div>
+      <div>
+        <ul class="ck">
+          <li><b>Nunca se enciman citas.</b> Una restricción de exclusión en PostgreSQL impide dos citas al mismo barbero a la misma hora, aunque lleguen al mismo tiempo.</li>
+          <li><b>Si el barbero está lleno,</b> el sistema ofrece otro barbero disponible o el siguiente día libre.</li>
+          <li><b>Para cada rol.</b> Dueño con caja, comisiones y alertas; recepción con llegadas por QR y clientes sin cita; barbero con su agenda y sus ganancias.</li>
+          <li><b>Equipo por invitación.</b> Enlace de un solo uso que vence en 7 días, y quitar acceso cierra sus sesiones al instante.</li>
+        </ul>
+        <div class="tags"><span>Django 5.2</span><span>PostgreSQL</span><span>QR</span><span>Correo transaccional</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band proj alt" id="gym">
+  <div class="wrap">
+    <div class="ph">
+      <div>
+        <div class="ty">Sistema para gimnasios</div>
+        <h2>Gym Control</h2>
+        <p class="kick">Control de socios, membresías y acceso para un gimnasio. Cada cliente recibe una credencial con QR que se escanea en la entrada para validar si su membresía sigue vigente.</p>
+      </div>
+    </div>
+    <div class="pg">
+      <div class="gal" data-gal>
+        <figure><div class="main"><img data-main src="img/gym_clientes.jpg" alt="" width="1200" height="750"></div><figcaption data-cap>Clientes con su QR, estado de membresía y vencimiento.</figcaption></figure>
+        <div class="ths">
+          <button class="th" aria-pressed="true" data-src="img/gym_clientes.jpg" data-cap="Clientes con su QR, estado de membresía y vencimiento."><img src="img/gym_clientes.jpg" alt="Clientes"></button>
+          <button class="th" data-src="img/gym_cliente.jpg" data-cap="Perfil del socio con su membresía actual y días restantes."><img src="img/gym_cliente.jpg" alt="Perfil del socio"></button>
+        </div>
+      </div>
+      <div>
+        <ul class="ck">
+          <li><b>Acceso por QR.</b> Valida la membresía al escanear y registra accesos permitidos y negados.</li>
+          <li><b>Membresías flexibles.</b> Por día, semana, quincena, mes, trimestre o año, con alertas antes de vencer.</li>
+          <li><b>Punto de venta.</b> Venta de productos en recepción y corte de caja.</li>
+        </ul>
+        <div class="tags"><span>Django</span><span>SQLite</span><span>QR</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="mas">
+  <div class="wrap">
+    <h2>Más proyectos</h2>
+    <div class="grid">
+      <article class="pj">
+        <div class="ty">En desarrollo · punto de venta</div>
+        <h3>PAKIVOX Verdulería</h3>
+        <p>Punto de venta para Windows que funciona sin internet. Catálogo con unidades exactas por kilo, recepción y merma, movimientos de inventario que no se pueden alterar y caja.</p>
+        <div class="tags"><span>Django</span><span>SQLite</span><span>553 pruebas</span></div>
+      </article>
+      <article class="pj">
+        <div class="ty">Proyecto en equipo · AquaTech Dev</div>
+        <h3>ODAPAS Report</h3>
+        <p>Los ciudadanos reportan fugas, falta de agua o baja presión sobre un mapa, y el administrador asigna cada reporte a un trabajador de su zona.</p>
+        <div class="tags"><span>Angular</span><span>Spring Boot</span><span>PostgreSQL</span><span>Leaflet</span></div>
+      </article>
+      <article class="pj">
+        <div class="ty">Diseño de interfaz</div>
+        <h3>Mi Día, agenda en cinco pantallas</h3>
+        <p>La misma app de tareas diseñada en Figma para escritorio, tablet, celular, smartwatch y pantalla de auto, y construida en Angular con componentes.</p>
+        <div class="tags"><span>Figma</span><span>Angular</span></div>
+      </article>
+      <article class="pj">
+        <div class="ty">Bases de datos</div>
+        <h3>Consola de administración PostgreSQL</h3>
+        <p>Herramienta de terminal para respaldar y restaurar bases, monitorear y cerrar sesiones, y administrar usuarios y permisos en Debian.</p>
+        <div class="tags"><span>Bash</span><span>PostgreSQL</span><span>Linux</span></div>
+      </article>
+      <article class="pj">
+        <div class="ty">CRUD con acceso protegido</div>
+        <h3>Junior Baseball League</h3>
+        <p>Equipos y jugadores con altas, consultas, edición y bajas, ficha de plantilla por equipo y acceso solo para administradores.</p>
+        <div class="tags"><span>Django</span><span>PostgreSQL</span></div>
+      </article>
+      <article class="pj">
+        <div class="ty">Marca propia</div>
+        <h3>Visual Studio Web</h3>
+        <p>Mi marca para ofrecer páginas y sistemas a la medida a negocios locales, como el de barberías.</p>
+        <div class="tags"><span>Diseño</span><span>Contenido</span><span>Ventas</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="band proj alt">
+  <div class="wrap">
+    <h2>Con qué trabajo</h2>
+    <div class="skills">
+      <div><h3>Backend</h3><ul><li>Python, Django</li><li>PostgreSQL, SQLite</li><li>Celery y Redis</li><li>APIs REST y webhooks</li><li>Java con Spring Boot</li></ul></div>
+      <div><h3>Frontend</h3><ul><li>HTML, CSS, JavaScript</li><li>HTMX</li><li>Angular</li><li>Bootstrap</li><li>Figma</li></ul></div>
+      <div><h3>Infraestructura</h3><ul><li>AWS Lightsail</li><li>Nginx y Gunicorn</li><li>Linux, Bash y Docker</li><li>Git y GitHub</li><li>Sentry</li></ul></div>
+      <div><h3>Integraciones</h3><ul><li>Stripe</li><li>Envia.com y Skydropx</li><li>WhatsApp Cloud API</li><li>API de Claude</li><li>Pruebas automatizadas</li></ul></div>
+    </div>
+    <div class="how">
+      <div><h3>Por fases verificadas</h3><p>Cada cambio grande lleva pruebas, respaldo y forma de revertirlo. No avanzo sin comprobar la fase anterior.</p></div>
+      <div><h3>Primero el código real</h3><p>Antes de cambiar algo reviso cómo está construido. No reescribo lo que funciona sin una razón técnica.</p></div>
+      <div><h3>Explicable para el negocio</h3><p>Cada proceso tiene una explicación que el dueño entiende: qué controla, qué riesgo evita y de dónde sale cada número.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="trayectoria">
+  <div class="wrap">
+    <h2>Trayectoria</h2>
+    <div class="tl">
+      <div><time>Jun 2026 – hoy</time><section><h3>Fundador y desarrollador · PAKIVOX</h3><p>Diseño, desarrollo, despliegue y venta de un SaaS de operación para mayoristas.</p></section></div>
+      <div><time>2026 – hoy</time><section><h3>Desarrollador independiente · Visual Studio Web</h3><p>Sistemas de reservaciones y páginas para restaurantes, barberías y gimnasios.</p></section></div>
+      <div><time>En curso</time><section><h3>Ingeniería en Desarrollo y Gestión de Software · UTTEC</h3><p>Universidad Tecnológica de Tecámac.</p></section></div>
+    </div>
+  </div>
+</section>
+
+<section class="band contact" id="contacto">
+  <div class="wrap">
+    <div>
+      <h2>¿Tu operación necesita un sistema así?</h2>
+      <p>Busco proyectos y puestos de desarrollo con Django: inventario, logística, reservaciones o sistemas internos. Escríbeme por LinkedIn.</p>
+    </div>
+    <div class="cta" style="margin:0">
+      <a class="btn p" href="https://www.linkedin.com/in/manuel-santiago-a555513b4">Escribir en LinkedIn</a>
+      <a class="btn g" style="color:#fff" href="https://www.pakivox.com">pakivox.com</a>
+      <a class="btn g" style="color:#fff" href="https://www.instagram.com/visual_studioweb/">@visual_studioweb</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">Manuel Santiago · Estado de México · Las capturas son de demos con datos de ejemplo.</footer>
+
+<script>
+{
+  for (const g of document.querySelectorAll('[data-gal]')) {
+    const main = g.querySelector('[data-main]'), cap = g.querySelector('[data-cap]');
+    const ths = [...g.querySelectorAll('.th')];
+    const set = (b) => {
+      main.src = b.dataset.src;
+      main.alt = b.querySelector('img').alt;
+      cap.textContent = b.dataset.cap;
+      ths.forEach(t => t.setAttribute('aria-pressed', t === b ? 'true' : 'false'));
+    };
+    ths.forEach(b => b.addEventListener('click', () => set(b)));
+    if (ths[0]) main.alt = ths[0].querySelector('img').alt;
+  }
+}
+</script>
+</body>
+</html>
